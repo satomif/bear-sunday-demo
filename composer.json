@@ -1,0 +1,45 @@
+{
+    "name": "satomif/bear-sunday-demo",
+    "type": "project",
+    "license": "proprietary",
+    "description": "",
+    "require": {
+        "php": "^7.0",
+        "roave/security-advisories": "dev-master",
+        "bear/package": "^1.5",
+        "josegonzalez/dotenv": "^2.1",
+        "ray/test-double": "1.x-dev"
+    },
+    "require-dev": {
+        "bear/qatools": "^1.4.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Satomif\\BearSundayDemo\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BEAR\\Skeleton\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": [
+            "phpunit"
+        ],
+        "coverage": [
+            "php -dzend_extension=xdebug.so ./vendor/bin/phpunit --coverage-text --coverage-html=build/coverage"
+        ],
+        "cs": [
+            "php-cs-fixer fix -v --dry-run",
+            "phpcs --standard=./phpcs.xml src"
+        ],
+        "cs-fix": [
+            "php-cs-fixer fix -v",
+            "phpcbf src"
+        ],
+        "serve": "php -dzend_extension=xdebug.so -S 127.0.0.1:8080 -t public",
+        "api": "php bootstrap/api.php",
+        "web": "php bootstrap/web.php"
+    }
+}
